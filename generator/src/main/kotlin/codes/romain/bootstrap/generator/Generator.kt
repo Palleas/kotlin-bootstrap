@@ -47,7 +47,7 @@ fun main() {
         )
         .build()
 
-    val targetFile = Path("bootstrap-icons")
+    val targetFile = Path("bootstrap-icons/src/main/kotlin/")
     file.writeTo(targetFile)
 }
 
