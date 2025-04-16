@@ -1,57 +1,27 @@
 package codes.romain.bootstrap.generator
 
 import com.squareup.kotlinpoet.*
+import kotlinx.serialization.json.Json
+import kotlin.io.path.Path
+
 
 val type = ClassName("codes.romain.bootstrap.icons", "BootstrapIcon")
 
-fun bootstrapIconType(name: String) = PropertySpec.builder(name, type)
+fun bootstrapIconType(name: String) = PropertySpec.builder(generatePropertyName(name), type)
     .initializer("%T(%S)", type, name)
     .build()
 
-val iconList = listOf(
-    "fullscreen",
-    "optical-audio",
-    "person-square",
-    "receipt-cutoff",
-    "envelope-arrow-up",
-    "symmetry-vertical",
-    "lamp-fill",
-    "brightness-alt-low",
-    "box-arrow-left",
-    "shift",
-    "telephone-forward",
-    "person-gear",
-    "floppy",
-    "crosshair",
-    "calendar3-range-fill",
-    "sticky-fill",
-    "envelope-paper-heart",
-    "file-play",
-    "file-font",
-    "mouse2",
-    "9-square",
-    "ear-fill",
-    "pen-fill",
-    "disc",
-    "filetype-json",
-    "house-add",
-    "caret-down-square",
-    "file-easel-fill",
-    "7-circle-fill",
-    "router",
-    "router-fill",
-    "calendar3-range",
-    "egg",
-    "sort-down-alt",
-    "chat-quote-fill",
-    "record-fill",
-    "arrow-return-right",
-    "text-indent-left",
-    "cloud-drizzle-fill",
-    "google",
-)
+fun loadIcons() = object {}.javaClass.classLoader.getResourceAsStream("bootstrap-icons.json")
+    ?.readAllBytes()
+    ?.let { String(it) }
+    ?.let { Json.Default.decodeFromString<List<String>>(it).map { it.split(".").first() } }
+    ?: throw IllegalStateException("Unable to read file with list of icons")
+
+
 
 fun main() {
+    val iconList = loadIcons()
+
     val file = FileSpec
         .builder(
             packageName = "codes.romain.bootstrap.icons",
@@ -73,11 +43,11 @@ fun main() {
                         addProperty(bootstrapIconType(it))
                     }
                 }
-                .addProperty(bootstrapIconType("phone"))
                 .build()
         )
         .build()
 
-    file.writeTo(System.out)
+    val targetFile = Path("bootstrap-icons")
+    file.writeTo(targetFile)
 }
 

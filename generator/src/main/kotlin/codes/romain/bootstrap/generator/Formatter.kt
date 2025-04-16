@@ -27,5 +27,5 @@ fun generatePropertyName(iconName: String): String {
         }
     }
 
-    return (listOf(firstPiece) + pieces.drop(1)).joinToString("") { it.first().uppercase() + it.drop(1).lowercase() }
+    return (listOf(firstPiece) + pieces.drop(1)).joinToString("", transform = ::uppercaseFirstLetter)
 }
