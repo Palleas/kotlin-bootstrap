@@ -18,6 +18,7 @@ publishing {
     publications {
         register<MavenPublication>("gpr") {
             from(components["java"])
+            version = "0.0."
         }
     }
 }
