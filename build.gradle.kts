@@ -10,5 +10,3 @@ allprojects {
 
     group = "codes.romain"
 }
-
-version = "1.0.0"
