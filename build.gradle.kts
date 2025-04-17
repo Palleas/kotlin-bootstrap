@@ -8,8 +8,16 @@ allprojects {
         mavenCentral()
     }
 
-    version = "1.0-SNAPSHOT"
     group = "codes.romain"
 }
 
-
+tasks.withType<PublishToMavenRepository>().configureEach {
+    doFirst {
+        val envVersion = System.getenv("RELEASE_VERSION")
+        if (envVersion.isNullOrBlank()) {
+            error("RELEASE_VERSION environment variable must be set when publishing.")
+        } else {
+            project.version = envVersion
+        }
+    }
+}
