@@ -9,6 +9,7 @@ allprojects {
     }
 
     version = "1.0-SNAPSHOT"
+    group = "codes.romain"
 }
 
-group = "codes.romain"
+

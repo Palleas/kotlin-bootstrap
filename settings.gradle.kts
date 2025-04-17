@@ -10,3 +10,4 @@ include(":bootstrap-icons")
 //findProject(":bootstrap-icons")!!.name = "kotlin-bootstrap-icons"
 
 include(":generator")
+include("kotlinx-html-bootstrap")

@@ -5,14 +5,14 @@
 kotlin-poet = "2.1.0"
 kotest = "5.9.1"
 kotlinx-serialization-json = "1.8.1"
+kotlinx-html = "0.12.0"
 
 [libraries]
 kotlin-poet = { module = "com.squareup:kotlinpoet", version.ref = "kotlin-poet" }
 kotest-runner = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest" }
 kotest-dataset = { module = "io.kotest:kotest-framework-datatest", version.ref = "kotest" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization-json" }
-
+kotlinx-html = { module = "org.jetbrains.kotlinx:kotlinx-html", version.ref = "kotlinx-html" }
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version = "2.1.20" }
 serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version = "2.1.20" }
-
