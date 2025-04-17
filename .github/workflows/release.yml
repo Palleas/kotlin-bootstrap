@@ -42,3 +42,5 @@ jobs:
 
       - name: Create Release on GitHub
         run: gh release create --generate-notes ${{ inputs.version }}
+        env:
+          GH_TOKEN: ${{ github.token }}
