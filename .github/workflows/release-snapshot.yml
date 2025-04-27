@@ -5,12 +5,8 @@ concurrency:
     cancel-in-progress: false
 
 on:
-    workflow_dispatch:
-        inputs:
-            version:
-                description: New Version to Release
-                required: true
-                type: string
+    push:
+        branches: [main]
 
 jobs:
     release-new-version:
@@ -36,13 +32,7 @@ jobs:
 
             - name: Publish packages
               run: >
-                  ./gradlew -Dversion=${{ inputs.version }} publishAllPublicationsToReleasesRepository \
+                  ./gradlew -Dversion=${{ inputs.version }} publishAllPublicationsToSnapshotsRepository \
                     -PreposiliteRepositoryUsername=${{ secrets.reposilite_user }} \
                     -PreposiliteRepositoryPassword=${{ secrets.reposilite_password }} \
-                    -Pversion=${{ inputs.version }}
-
-
-            - name: Create Release on GitHub
-              run: gh release create --generate-notes ${{ inputs.version }}
-              env:
-                  GH_TOKEN: ${{ github.token }}
+                    -Pversion=1.0.0-SNAPSHOT
