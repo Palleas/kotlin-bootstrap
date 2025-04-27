@@ -32,7 +32,7 @@ jobs:
 
             - name: Publish packages
               run: >
-                  ./gradlew -Dversion=${{ inputs.version }} publishAllPublicationsToSnapshotsRepository \
+                  ./gradlew publishAllPublicationsToSnapshotsRepository \
                     -PreposiliteRepositoryUsername=${{ secrets.reposilite_user }} \
                     -PreposiliteRepositoryPassword=${{ secrets.reposilite_password }} \
                     -Pversion=1.0.0-SNAPSHOT

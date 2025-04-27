@@ -36,7 +36,7 @@ jobs:
 
             - name: Publish packages
               run: >
-                  ./gradlew -Dversion=${{ inputs.version }} publishAllPublicationsToReleasesRepository \
+                  ./gradlew publishAllPublicationsToReleasesRepository \
                     -PreposiliteRepositoryUsername=${{ secrets.reposilite_user }} \
                     -PreposiliteRepositoryPassword=${{ secrets.reposilite_password }} \
                     -Pversion=${{ inputs.version }}
