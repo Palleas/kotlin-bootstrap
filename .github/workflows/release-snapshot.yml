@@ -1,4 +1,4 @@
-name: Gradle Package
+name: Release snapshot version
 
 concurrency:
     group: ${{ github.workflow }}-${{ github.ref }}
