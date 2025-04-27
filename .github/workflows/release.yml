@@ -34,7 +34,12 @@ jobs:
               run: ./gradlew test
 
             - name: Publish to GitHub Packages
-              run: ./gradlew -Dversion=${{ inputs.version }} publish -PreposiliteRepositoryUsername=${{ secrets.reposilite_user }} -PreposiliteRepositoryPassword=${{ secrets.reposilite_password }}
+              run: >
+                  ./gradlew -Dversion=${{ inputs.version }} publish \
+                    -PreposiliteRepositoryUsername=${{ secrets.reposilite_user }} \
+                    -PreposiliteRepositoryPassword=${{ secrets.reposilite_password }} \
+                    -Pversion=${{ inputs.version }}
+
 
             - name: Create Release on GitHub
               run: gh release create --generate-notes ${{ inputs.version }}
