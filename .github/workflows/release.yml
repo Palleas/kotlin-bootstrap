@@ -1,46 +1,42 @@
 name: Gradle Package
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: false
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: false
 
 on:
-  workflow_dispatch:
-    inputs:
-      version:
-        description: New Version to Release
-        required: true
-        type: string
+    workflow_dispatch:
+        inputs:
+            version:
+                description: New Version to Release
+                required: true
+                type: string
 jobs:
-  release-new-version:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write # Allow us to create a release
-      packages: write # Publish the package
+    release-new-version:
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write # Allow us to create a release
+            packages: write # Publish the package
 
-    steps:
-      - uses: actions/checkout@v4
+        steps:
+            - uses: actions/checkout@v4
 
-      - name: Set up JDK
-        uses: actions/setup-java@v4
-        with:
-          java-version: '21'
-          distribution: 'temurin'
+            - name: Set up JDK
+              uses: actions/setup-java@v4
+              with:
+                  java-version: "21"
+                  distribution: "temurin"
 
-      - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v4
+            - name: Setup Gradle
+              uses: gradle/actions/setup-gradle@v4
 
-      - name: Build and run tests
-        run: ./gradlew test
+            - name: Build and run tests
+              run: ./gradlew test
 
-      - name: Publish to GitHub Packages
-        run: ./gradlew -Dversion=${{ inputs.version }} publish
-        env:
-          USERNAME: ${{ github.actor }}
-          TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          VERSION: 0.${{github.run_number}}.0
+            - name: Publish to GitHub Packages
+              run: ./gradlew -Dversion=${{ inputs.version }} publish -PreposiliteRepositoryUsername=${{ secrets.reposilite_user }} -PreposiliteRepositoryPassword=${{ secrets.reposilite_password }}
 
-      - name: Create Release on GitHub
-        run: gh release create --generate-notes ${{ inputs.version }}
-        env:
-          GH_TOKEN: ${{ github.token }}
+            - name: Create Release on GitHub
+              run: gh release create --generate-notes ${{ inputs.version }}
+              env:
+                  GH_TOKEN: ${{ github.token }}

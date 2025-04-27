@@ -12,17 +12,17 @@ dependencies {
 publishing {
     repositories {
         maven {
-            name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/palleas/kotlin-bootstrap")
-            credentials {
-                username = System.getenv("USERNAME")
-                password = System.getenv("TOKEN")
+            name = "reposiliteRepository"
+            url = uri("https://reposilite.dokku.perfectly-cooked.com/releases")
+            credentials(PasswordCredentials::class)
+            authentication {
+                create<BasicAuthentication>("basic")
             }
         }
     }
 
     publications {
-        register<MavenPublication>("gpr") {
+        register<MavenPublication>("reposilite") {
             from(components["java"])
         }
     }
