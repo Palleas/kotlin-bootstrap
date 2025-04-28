@@ -37,8 +37,8 @@ jobs:
             - name: Publish packages
               run: >
                   ./gradlew publishAllPublicationsToReleasesRepository \
-                    -PreposiliteRepositoryUsername=${{ secrets.reposilite_user }} \
-                    -PreposiliteRepositoryPassword=${{ secrets.reposilite_password }} \
+                    -PreleasesUsername=${{ secrets.reposilite_user }} \
+                    -PreleasesPassword=${{ secrets.reposilite_password }} \
                     -Pversion=${{ inputs.version }}
 
 
