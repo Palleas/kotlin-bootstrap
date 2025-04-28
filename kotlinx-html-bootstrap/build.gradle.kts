@@ -5,7 +5,7 @@ plugins {
 
 dependencies {
     implementation(libs.kotlinx.html)
-    implementation(project(":bootstrap-icons"))
+    api(project(":bootstrap-icons"))
     testImplementation(libs.kotest.runner)
 }
 
