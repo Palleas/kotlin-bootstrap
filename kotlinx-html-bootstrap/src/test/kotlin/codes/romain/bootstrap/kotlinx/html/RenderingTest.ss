@@ -6,7 +6,10 @@
   </div>
 </div>
 
-╔═ Icons ═╗
+╔═ Icon with content ═╗
+<div><i class="bi bi-airplane-engines-fill"><span>Additional content</span></i></div>
+
+╔═ Regular Icon ═╗
 <div><i class="bi bi-airplane-engines-fill"></i></div>
 
 ╔═ Simple alert ═╗

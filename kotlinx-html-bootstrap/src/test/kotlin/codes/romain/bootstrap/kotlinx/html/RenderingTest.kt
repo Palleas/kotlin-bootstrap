@@ -11,14 +11,24 @@ import kotlinx.html.a
 import kotlinx.html.div
 import kotlinx.html.h1
 import kotlinx.html.p
+import kotlinx.html.span
 import kotlinx.html.stream.appendHTML
 
 class RenderingTest : FunSpec({
-    test("Icons") {
-        expectSelfie(getContent { icon(BootstrapIcon.AirplaneEnginesFill) }).toMatchDisk()
+    context("Icons") {
+        test("Regular Icon") {
+            expectSelfie(getContent { icon(BootstrapIcon.AirplaneEnginesFill) }).toMatchDisk()
+        }
+
+        test("Icon with content") {
+            expectSelfie(getContent { icon(BootstrapIcon.AirplaneEnginesFill) {
+                span { +"Additional content" }
+            } }).toMatchDisk()
+        }
+
     }
 
-    context("Alert") {
+    context("Alerts") {
         test("Simple alert") {
             expectSelfie(getContent { alert(AlertType.Info) { +"This is an alert!" } }).toMatchDisk()
         }
