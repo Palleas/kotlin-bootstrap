@@ -6,10 +6,16 @@
   </div>
 </div>
 
+╔═ Badge with rounded pill ═╗
+<div><span class="badge text-bg-primary rounded-pill">Cool Rounded Badge</span></div>
+
 ╔═ Icon with content ═╗
 <div><i class="bi bi-airplane-engines-fill"><span>Additional content</span></i></div>
 
-╔═ Regular Icon ═╗
+╔═ Simple Badge ═╗
+<div><span class="badge text-bg-primary">Cool Badge</span></div>
+
+╔═ Simple Icon ═╗
 <div><i class="bi bi-airplane-engines-fill"></i></div>
 
 ╔═ Simple alert ═╗

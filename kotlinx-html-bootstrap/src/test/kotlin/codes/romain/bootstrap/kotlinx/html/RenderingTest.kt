@@ -16,14 +16,16 @@ import kotlinx.html.stream.appendHTML
 
 class RenderingTest : FunSpec({
     context("Icons") {
-        test("Regular Icon") {
+        test("Simple Icon") {
             expectSelfie(getContent { icon(BootstrapIcon.AirplaneEnginesFill) }).toMatchDisk()
         }
 
         test("Icon with content") {
-            expectSelfie(getContent { icon(BootstrapIcon.AirplaneEnginesFill) {
-                span { +"Additional content" }
-            } }).toMatchDisk()
+            expectSelfie(getContent {
+                icon(BootstrapIcon.AirplaneEnginesFill) {
+                    span { +"Additional content" }
+                }
+            }).toMatchDisk()
         }
 
     }
@@ -48,6 +50,22 @@ class RenderingTest : FunSpec({
                             +"Take Me Home"
                         }
                     }
+                }
+            }).toMatchDisk()
+        }
+    }
+
+    context("Badges") {
+        test("Simple Badge") {
+            expectSelfie(getContent { badge(TextStyle.Primary) { +"Cool Badge" } }).toMatchDisk()
+        }
+
+        test("Badge with rounded pill") {
+            expectSelfie(getContent {
+                badge(TextStyle.Primary) {
+                    roundedPill()
+
+                    +"Cool Rounded Badge"
                 }
             }).toMatchDisk()
         }
