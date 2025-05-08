@@ -10,6 +10,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/bootstrap-icons" />
             <option value="$PROJECT_DIR$/generator" />
+            <option value="$PROJECT_DIR$/kotlinx-bootstrap-demo" />
             <option value="$PROJECT_DIR$/kotlinx-html-bootstrap" />
           </set>
         </option>

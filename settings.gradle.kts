@@ -7,7 +7,7 @@ plugins {
 rootProject.name = "kotlin-bootstrap"
 
 include(":bootstrap-icons")
-//findProject(":bootstrap-icons")!!.name = "kotlin-bootstrap-icons"
 
 include(":generator")
-include("kotlinx-html-bootstrap")
+include(":kotlinx-html-bootstrap")
+include(":kotlinx-bootstrap-demo")
