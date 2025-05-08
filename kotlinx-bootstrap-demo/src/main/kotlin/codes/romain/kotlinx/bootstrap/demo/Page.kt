@@ -1,8 +1,10 @@
 package codes.romain.kotlinx.bootstrap.demo
 
 import kotlinx.html.FlowContent
+import kotlinx.html.a
 import kotlinx.html.body
 import kotlinx.html.div
+import kotlinx.html.footer
 import kotlinx.html.head
 import kotlinx.html.html
 import kotlinx.html.link
@@ -22,12 +24,20 @@ class Page(private val pageTitle: String, val content: FlowContent.() -> Unit) {
                     attributes["crossorigin"] = "anonymous"
                 }
 
-                link("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.12.1/font/bootstrap-icons.min.css", rel = "stylesheet")
+                link(
+                    "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.12.1/font/bootstrap-icons.min.css",
+                    rel = "stylesheet"
+                )
             }
 
             body {
-                div("container") {
+                div("container mb-2") {
                     content()
+                }
+
+                footer("text-center p-4") {
+                    +"Made in Vancouver by "
+                    a(href = "https://romain.codes") { +"Romain Pouclet" }
                 }
             }
         }

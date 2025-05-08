@@ -2,9 +2,11 @@ package codes.romain.kotlinx.bootstrap.demo
 
 import codes.romain.bootstrap.icons.BootstrapIcon
 import codes.romain.bootstrap.kotlinx.html.AlertType
+import codes.romain.bootstrap.kotlinx.html.TextStyle
 import codes.romain.bootstrap.kotlinx.html.alert
 import codes.romain.bootstrap.kotlinx.html.alertHeading
 import codes.romain.bootstrap.kotlinx.html.alertLink
+import codes.romain.bootstrap.kotlinx.html.badge
 import codes.romain.bootstrap.kotlinx.html.icon
 import kotlinx.html.a
 import kotlinx.html.classes
@@ -71,6 +73,27 @@ fun main(args: Array<String>) {
                 }
             }
 
+        }
+
+        section {
+            h2 { +"Badges" }
+
+            p {
+                a(href = "https://getbootstrap.com/docs/5.3/components/badges") {
+                    icon(BootstrapIcon.Bootstrap) { classes += "me-2" }
+                    +"View on Bootstrap"
+                }
+            }
+
+
+            div("d-flex") {
+                style = "column-gap: 10px;"
+
+                TextStyle.entries.forEach {
+                    badge(it) { +"Badge" }
+                }
+
+            }
         }
     }.render()
 
