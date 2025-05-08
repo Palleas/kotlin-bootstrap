@@ -7,6 +7,7 @@ dependencies {
     implementation(libs.kotlinx.html)
     api(project(":bootstrap-icons"))
     testImplementation(libs.kotest.runner)
+    testImplementation(libs.selfie.kotest)
 }
 
 publishing {
@@ -37,4 +38,8 @@ publishing {
             }
         }
     }
+}
+
+tasks.test {
+    useJUnitPlatform()
 }

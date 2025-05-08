@@ -1,34 +1,23 @@
 package codes.romain.bootstrap.kotlinx.html
 
 import codes.romain.bootstrap.icons.BootstrapIcon
+import com.diffplug.selfie.coroutines.expectSelfie
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.Matcher
 import io.kotest.matchers.shouldBe
 import kotlinx.html.FlowContent
 import kotlinx.html.div
-import kotlinx.html.span
 import kotlinx.html.stream.appendHTML
 
 class RenderingTest : FunSpec({
-    context("Bootstrap Icons") {
-        test("render icon") {
-            buildString {
-                appendHTML(false).div {
-                    icon(BootstrapIcon.AirplaneEnginesFill)
-                }
-            } shouldBe """<div><i class="bi bi-airplane-engines-fill"></i></div>"""
-        }
+    test("Icons") {
+        expectSelfie(getContent { icon(BootstrapIcon.AirplaneEnginesFill) }).toMatchDisk()
+    }
 
-        test("render icon with additional content") {
-            buildString {
-                appendHTML(false).div {
-                    icon(BootstrapIcon.AirplaneEnginesFill) {
-                        span { +"hello icon" }
-                    }
-                }
-            } shouldBe """<div><i class="bi bi-airplane-engines-fill"><span>hello icon</span></i></div>"""
-        }
+    test("Alerts") {
+        expectSelfie(getContent { alert(AlertType.Info) { +"This is an alert!"} }).toMatchDisk()
     }
 })
+
 
