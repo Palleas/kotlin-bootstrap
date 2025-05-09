@@ -26,7 +26,6 @@ import kotlin.io.path.createDirectories
 import kotlin.io.path.createDirectory
 import kotlin.io.path.deleteRecursively
 
-@OptIn(ExperimentalPathApi::class)
 fun main(args: Array<String>) {
     val index = Page("Kotlinx HTML Bootstrap Demo") {
         h1("text-center") { +"Kotlinx HTML Demo" }
