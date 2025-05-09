@@ -20,6 +20,8 @@ import kotlinx.html.style
 import java.nio.file.Files
 import kotlin.io.path.ExperimentalPathApi
 import kotlin.io.path.Path
+import kotlin.io.path.absolute
+import kotlin.io.path.createDirectories
 import kotlin.io.path.createDirectory
 import kotlin.io.path.deleteRecursively
 
@@ -97,9 +99,10 @@ fun main(args: Array<String>) {
         }
     }.render()
 
-    val targetDirectory = Path(".").resolve("demo-build")
-    targetDirectory.deleteRecursively()
-    targetDirectory.createDirectory()
+    val targetDirectory = Path(args.first())
+    runCatching { targetDirectory.createDirectories() }
+
+    println("Generating demo to $targetDirectory")
 
     val indexPath = targetDirectory.resolve("index.html")
     Files.write(indexPath, index.toByteArray())

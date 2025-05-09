@@ -9,3 +9,9 @@ dependencies {
 
     testImplementation(libs.kotest.runner)
 }
+
+tasks.register<JavaExec>("generate") {
+    classpath = sourceSets.main.get().runtimeClasspath
+    mainClass = "codes.romain.kotlinx.bootstrap.demo.EntrypointKt"
+    args = listOf(rootDir.resolve("demo-build").absolutePath)
+}
