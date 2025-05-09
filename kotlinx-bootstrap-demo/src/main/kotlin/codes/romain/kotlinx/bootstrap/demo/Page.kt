@@ -37,7 +37,11 @@ class Page(private val pageTitle: String, val content: FlowContent.() -> Unit) {
 
                 footer("text-center p-4") {
                     +"Made in Vancouver by "
-                    a(href = "https://romain.codes") { +"Romain Pouclet" }
+                    a(href = "https://romain.codes") { +"Romain Pouclet." }
+
+                    +" Generated using "
+                    a("https://github.com/Kotlin/kotlinx.html") { +"kotlinx.html" }
+                    +" and this library."
                 }
             }
         }

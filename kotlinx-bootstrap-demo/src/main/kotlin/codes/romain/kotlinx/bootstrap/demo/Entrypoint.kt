@@ -11,6 +11,7 @@ import codes.romain.bootstrap.kotlinx.html.icon
 import kotlinx.html.a
 import kotlinx.html.classes
 import kotlinx.html.div
+import kotlinx.html.footer
 import kotlinx.html.h1
 import kotlinx.html.h2
 import kotlinx.html.h4
