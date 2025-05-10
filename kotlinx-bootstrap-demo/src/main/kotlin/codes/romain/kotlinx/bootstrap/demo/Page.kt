@@ -9,8 +9,10 @@ import kotlinx.html.head
 import kotlinx.html.html
 import kotlinx.html.link
 import kotlinx.html.meta
+import kotlinx.html.script
 import kotlinx.html.stream.appendHTML
 import kotlinx.html.title
+import kotlinx.html.unsafe
 
 class Page(private val pageTitle: String, val content: FlowContent.() -> Unit) {
 
@@ -28,6 +30,8 @@ class Page(private val pageTitle: String, val content: FlowContent.() -> Unit) {
                     "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.12.1/font/bootstrap-icons.min.css",
                     rel = "stylesheet"
                 )
+
+                link(href = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css", rel = "stylesheet")
             }
 
             body {
@@ -42,6 +46,16 @@ class Page(private val pageTitle: String, val content: FlowContent.() -> Unit) {
                     +" Generated using "
                     a("https://github.com/Kotlin/kotlinx.html") { +"kotlinx.html" }
                     +" and this library."
+                }
+
+                script(src = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js") {  }
+                script(src = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/kotlin.min.js") {  }
+
+
+                script {
+                    unsafe {
+                        +"hljs.highlightAll();"
+                    }
                 }
             }
         }
