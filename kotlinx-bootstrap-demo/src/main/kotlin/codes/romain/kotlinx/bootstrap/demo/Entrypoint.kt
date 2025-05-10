@@ -9,6 +9,7 @@ import codes.romain.bootstrap.kotlinx.html.alertLink
 import codes.romain.bootstrap.kotlinx.html.badge
 import codes.romain.bootstrap.kotlinx.html.icon
 import codes.romain.kotlinx.bootstrap.demo.components.alerts
+import codes.romain.kotlinx.bootstrap.demo.components.badges
 import kotlinx.html.DIV
 import kotlinx.html.FlowContent
 import kotlinx.html.SECTION
@@ -52,27 +53,7 @@ fun main(args: Array<String>) {
 
         alerts()
 
-
-//        section {
-//            h2 { +"Badges" }
-//
-//            p {
-//                a(href = "https://getbootstrap.com/docs/5.3/components/badges") {
-//                    icon(BootstrapIcon.Bootstrap) { classes += "me-2" }
-//                    +"View on Bootstrap"
-//                }
-//            }
-//
-//
-//            div("d-flex") {
-//                style = "column-gap: 10px;"
-//
-//                TextStyle.entries.forEach {
-//                    badge(it) { +"Badge" }
-//                }
-//
-//            }
-//        }
+        badges()
     }.render()
 
     val targetDirectory = Path(args.first())

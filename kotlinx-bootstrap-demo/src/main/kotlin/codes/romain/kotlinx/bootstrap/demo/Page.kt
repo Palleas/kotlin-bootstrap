@@ -1,6 +1,7 @@
 package codes.romain.kotlinx.bootstrap.demo
 
 import kotlinx.html.FlowContent
+import kotlinx.html.ScriptCrossorigin
 import kotlinx.html.a
 import kotlinx.html.body
 import kotlinx.html.div
@@ -48,10 +49,14 @@ class Page(private val pageTitle: String, val content: FlowContent.() -> Unit) {
                     +" and this library."
                 }
 
+
+
+                script(src = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js") {
+                    crossorigin = ScriptCrossorigin.anonymous
+                    integrity = "sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+                }
                 script(src = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js") {  }
                 script(src = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/kotlin.min.js") {  }
-
-
                 script {
                     unsafe {
                         +"hljs.highlightAll();"
