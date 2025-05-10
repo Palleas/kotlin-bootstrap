@@ -8,7 +8,7 @@ import kotlinx.html.FlowContent
 fun FlowContent.badges() {
     componentSection(
         "Badges",
-        url = "https://getbootstrap.com/docs/5.3/components/badges",
+        url = "https://getbootstrap.com/docs/5.3/components/badge/",
         rawCode = """
             badge(TextStyle.Success) { +"Build 1.2.2-Beta" }
         """.trimIndent()
