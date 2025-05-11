@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/components/kotlin-bootstrap.components.main.iml" filepath="$PROJECT_DIR$/.idea/modules/components/kotlin-bootstrap.components.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/components/kotlin-bootstrap.components.test.iml" filepath="$PROJECT_DIR$/.idea/modules/components/kotlin-bootstrap.components.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotlinx-bootstrap-demo/kotlin-bootstrap.kotlinx-bootstrap-demo.main.iml" filepath="$PROJECT_DIR$/.idea/modules/kotlinx-bootstrap-demo/kotlin-bootstrap.kotlinx-bootstrap-demo.main.iml" />
     </modules>
   </component>
