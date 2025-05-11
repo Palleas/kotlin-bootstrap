@@ -6,6 +6,7 @@ dependencies {
     implementation(libs.kotlinx.html)
     implementation(project(":bootstrap-icons"))
     implementation(project(":kotlinx-html-bootstrap"))
+    implementation(project(":components"))
 
     testImplementation(libs.kotest.runner)
 }

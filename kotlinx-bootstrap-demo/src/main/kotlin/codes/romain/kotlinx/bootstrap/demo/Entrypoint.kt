@@ -10,6 +10,7 @@ import codes.romain.bootstrap.kotlinx.html.badge
 import codes.romain.bootstrap.kotlinx.html.icon
 import codes.romain.kotlinx.bootstrap.demo.components.alerts
 import codes.romain.kotlinx.bootstrap.demo.components.badges
+import codes.romain.kotlinx.bootstrap.demo.components.tableViews
 import kotlinx.html.DIV
 import kotlinx.html.FlowContent
 import kotlinx.html.SECTION
@@ -51,9 +52,15 @@ fun main(args: Array<String>) {
             }
         }
 
+        h2("text-center") { +"kotlinx-html-bootstrap" }
+
         alerts()
 
         badges()
+
+        h2("text-center") { +"components" }
+
+        tableViews()
     }.render()
 
     val targetDirectory = Path(args.first())
